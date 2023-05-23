@@ -5,19 +5,20 @@ using namespace std;
 class ApplyInfo
 {
 private:
-    string companyName; // È¸»ç ÀÌ¸§      // not null
-    string businessNum; // »ç¾÷ÀÚ¹øÈ£     // not null
-    string position;    // ¾÷¹«           // not null
-    int employedNum;    // Ã¤¿ë ÀÎ¿ø      // not null
-    string finishDate;  // ¸¶°¨ÀÏ         // not null
-
+    string companyName; // È¸ï¿½ï¿½ ï¿½Ì¸ï¿½      // not null
+    string businessNum; // ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£     // not null
+    string position;    // ï¿½ï¿½ï¿½ï¿½           // not null
+    int employedNum;    // Ã¤ï¿½ï¿½ ï¿½Î¿ï¿½      // not null
+    string finishDate;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½         // not null
+    string applicantName;
 public:
-    ApplyInfo() {};     // ±âº» »ý¼ºÀÚ?
-    ApplyInfo(string, string, string , int , string);
+    ApplyInfo() {};     // ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
+    ApplyInfo(string, string, string , int , string, string);
     string getCompanyName() const;
     string getBusinessNum() const;
     string getPosition() const;
     int getEmployedNum() const;
     string getFinishDate() const;
+    string getApplicantName() const;
     ~ApplyInfo();
 };
