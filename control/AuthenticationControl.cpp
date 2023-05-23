@@ -25,5 +25,6 @@ bool AuthenticationControl::logout(std::string id) {
         return false;
     }
 
-    return sessionCollection->removeSession(id);
+    sessionCollection->removeSession();
+    return true;
 }
