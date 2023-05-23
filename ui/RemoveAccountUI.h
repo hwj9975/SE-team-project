@@ -10,7 +10,7 @@ private:
 
 public:
     RemoveAccountUI(AccountCollection* accountCollection);
-    bool requestRemove(std::string id);
+    bool requestRemove();
 };
 
 #endif
