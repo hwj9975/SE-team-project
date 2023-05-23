@@ -8,7 +8,7 @@
 class AccountCollection
 {
 private:
-    std::map<std::string, Account*> accountList;
+    std::map<std::string, Account*> accountList; // account id와 account 객체의 참조를 저장.
 
     // singleton instance
     static AccountCollection* instance;

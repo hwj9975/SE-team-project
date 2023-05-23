@@ -2,18 +2,20 @@
 #include <SessionCollection.h>
 #include <EmployInfoCollection.h>
 
+/**
+ * singleton인 ApplyInfoCollection 생성자 주입.
+*/
 AddApplyInfoUI::AddApplyInfoUI(ApplyInfoCollection* applyInfoCollection) 
     : addApplyInfoControl(applyInfoCollection) {}
 
+
+/**
+ * 사업자번호 기반 채용 지원.
+*/
 void AddApplyInfoUI::addApplyInfo(std::string businessNum) {
-    SessionCollection* sessionCollection = SessionCollection::getInstance();
-    Session* session = sessionCollection->getSession();
-    Account* account = session->getAccount();
+    std::cout << "4.2. 채용 지원\n";
+    std::cout << "> ";
 
-    EmployInfoCollection* employInfoCollection = EmployInfoCollection::getInstance();
-    EmployInfo employInfo = employInfoCollection->getEmployInfoByBusinessNum(businessNum);
-
-    ApplyInfo* applyInfo = new ApplyInfo(employInfo.getCompanyName(), employInfo.getBusinessNum()
-                                        , employInfo.getPosition(), employInfo.getApplicantsNum(), employInfo.getFinishDate(), account->getName());
-    addApplyInfoControl.addEmployInfo(applyInfo);
+    ApplyInfo info = addApplyInfoControl.addEmployInfo(businessNum); // 채용 지원.
+    cout << info.getCompanyName() << " " << info.getBusinessNum() << " " << info.getPosition() << "\n";
 }

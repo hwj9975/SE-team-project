@@ -9,7 +9,7 @@ private:
 public:
     AuthenticationUI(AccountCollection* accountCollection, SessionCollection* sessionCollection);
     bool requestLogin(std::string id, std::string password);
-    bool requestLogout(std::string id);
+    bool requestLogout();
 };
 
 #endif

@@ -2,16 +2,21 @@
 #include <StringParser.h>
 #include <CompanyAccount.h>
 #include <GeneralAccount.h>
+#include <iostream>
 
 AddAccountUI::AddAccountUI(AccountCollection* accountCollection)
     : addAccountControl(accountCollection) {}
 
 bool AddAccountUI::requestRegister(std::string input) {
+    std::cout << "1.1. 회원가입\n";
+    std::cout << "> ";
+
+    // input을 ' ' 기준으로 파싱.
     StringParser parser(input);
-    std::vector<std::string> tokens = parser.getTokens();
+    std::vector<std::string> tokens = parser.getTokens(); 
 
-    Account* account;
-
+    // Account 객체 생성
+    Account* account; 
     std::string name = tokens.at(1);
     std::string id = tokens.at(3);
     std::string password = tokens.at(4);
@@ -23,5 +28,11 @@ bool AddAccountUI::requestRegister(std::string input) {
         account = new GeneralAccount(id, password, name, residentId);
     }
 
-    return addAccountControl.registerAccount(account);
+    // 결과출력
+    if (addAccountControl.registerAccount(account)) {
+        std::cout << tokens.at(0) << " " << tokens.at(2) << " " << id << " " << password << "\n";
+    } else {
+        std::cout << "회원 가입이 정상적으로 이루어지지 않았습니다.\n";
+        return false;
+    }
 }
