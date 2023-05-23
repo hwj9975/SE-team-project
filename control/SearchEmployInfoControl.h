@@ -8,18 +8,22 @@
 class SearchEmployInfoControl
 {
 private:
-    EmployInfoCollection* employInfoCollection;
+    EmployInfoCollection* employInfoCollection; //singleton
 public:
+    /**
+     * singleton인 EmployInfoCollection 생성자 주입.
+    */
     SearchEmployInfoControl(EmployInfoCollection* employInfoCollection) {
         this->employInfoCollection = employInfoCollection;
     }
-    EmployInfo showEmployInfo(std::string companyName){
-        vector<EmployInfo> v =  employInfoCollection->getEmployInfo(companyName);
 
-        for (EmployInfo info: v) {
-            std::cout << info.getCompanyName() << " " << info.getBusinessNum() 
-                << " " << info.getPosition() << " " << info.getApplicantsNum() << " " << info.getFinishDate() << "\n";
-        }
+    /**
+     * 회사 이름을 기반으로 등록된 채용정보 검색.
+    */
+    std::vector<EmployInfo> searchEmployInfo(std::string companyName){
+        std::vector<EmployInfo> v =  employInfoCollection->getEmployInfo(companyName);
+
+        return v;
     }
 };
 
