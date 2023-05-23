@@ -7,13 +7,13 @@
 
 class AuthenticationControl {
 private:
-    AccountCollection* accountCollection;
-    SessionCollection* sessionCollection;
+    AccountCollection* accountCollection; //singleton
+    SessionCollection* sessionCollection; //singleton
 
 public:
-    AuthenticationControl(AccountCollection* accountCollection, SessionCollection* sessionCollection);
+    AuthenticationControl(AccountCollection* accountCollection, SessionCollection* sessionCollection); //생성자 주입
     bool login(std::string id, std::string password);
-    bool logout(std::string id);
+    std::string logout();
 };
 
 

@@ -2,16 +2,16 @@
 #define SESSION_H
 
 #include <string>
-#include <AccountType.h>
+#include <Account.h>
 
 class Session {
 private:
     std::string id;
-    AccountType accountType;
+    Account* account;
 public:
-    Session(std::string id, const AccountType& accountType);
-    std::string getId() const;
-    AccountType getAccountType() const;
+    Session(std::string id, Account* account);
+    std::string getId();
+    Account* getAccount();
 };
 
 #endif // SESSION_H

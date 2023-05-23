@@ -1,14 +1,14 @@
 #include "Session.h"
 
-Session::Session(std::string id, const AccountType& accountType) 
-    : id(id), accountType(accountType) {
+Session::Session(std::string id, Account* account) 
+    : id(id), account(account) {
 
 }
 
-std::string Session::getId() const {
+std::string Session::getId() {
     return id;
 }
 
-AccountType Session::getAccountType() const {
-    return accountType;
+Account* Session::getAccount() {
+    return account;
 }
