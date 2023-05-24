@@ -1,6 +1,3 @@
-#pragma once
-#include <iostream>
-
 #include "ApplyCollection.h"
 
 using namespace std;
@@ -13,17 +10,17 @@ private:
     string position;    // ����           // not null
     int applicantsNum;  // ä�� �ο�      // not null // <-- �� �³�?? ���� �ǹ̷� �� �ǰ���?
     string finishDate;  // ������         // not null
-    int currentappliedapplicantsNum;
-    ApplyCollection ownedApplyInfoCollection;
+    int currentAppliedApplicantsNum;
 
 
 public:
-    EmployInfo() {};     // �⺻ ������?
-    EmployInfo(string, string, string, int, string);
+    EmployInfo(string position, int applicantsNum, string finishDate); // 생성자
+
+    EmployInfo(string companyName, string businessNum, string position, int applicantsNum, string finishDate);
     string getCompanyName() const;
     string getBusinessNum() const;
     string getPosition() const;
     int getApplicantsNum() const;
     string getFinishDate() const;
-    void increaseCurrentappliedapplicantsNum();
+    void increaseCurrentAppliedApplicantsNum();
 };

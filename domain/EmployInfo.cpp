@@ -1,8 +1,8 @@
 #include "EmployInfo.h"
 
 EmployInfo::EmployInfo(string companyName, string businessNum, string position, int applicantsNum, string finishDate)
-    : companyName(companyName), businessNum(businessNum), position(position), applicantsNum(applicantsNum), finishDate(finishDate) {
-    currentappliedapplicantsNum = 0;
+        : companyName(companyName), businessNum(businessNum), position(position), applicantsNum(applicantsNum), finishDate(finishDate) {
+    currentAppliedApplicantsNum = 0;
 }
 string EmployInfo::getCompanyName() const {
     return this->companyName;
@@ -19,6 +19,6 @@ int EmployInfo::getApplicantsNum() const {
 string EmployInfo::getFinishDate() const {
     return this->finishDate;
 }
-void EmployInfo::increaseCurrentappliedapplicantsNum() {
-    this->currentappliedapplicantsNum++;
+void EmployInfo::increaseCurrentAppliedApplicantsNum() {
+    this->currentAppliedApplicantsNum++;
 }
