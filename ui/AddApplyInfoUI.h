@@ -1,7 +1,7 @@
 #ifndef ADDAPPLYINFOUI_H
 #define ADDAPPLYINFOUI_H
 
-#include <AddApplyInfoControl.h>
+#include "AddApplyInfoControl.h"
 
 class AddApplyInfoUI
 {

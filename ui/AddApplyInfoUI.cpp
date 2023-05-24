@@ -1,6 +1,7 @@
-#include <AddApplyInfoUI.h>
-#include <SessionCollection.h>
-#include <EmployInfoCollection.h>
+#include "AddApplyInfoUI.h"
+#include "SessionCollection.h"
+#include "EmployInfoCollection.h"
+#include "ApplyInfo.h"
 
 /**
  * singleton인 ApplyInfoCollection 생성자 주입.

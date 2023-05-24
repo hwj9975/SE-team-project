@@ -3,7 +3,7 @@
 
 #include <string>
 #include <map>
-#include <Session.h>
+#include "Session.h"
 
 class SessionCollection
 {
@@ -18,7 +18,7 @@ private:
 
 public:
     static SessionCollection* getInstance();
-    bool createSession(std::string id);
+    void createSession(std::string id);
     void removeSession();
     Session* getSession();
 };
