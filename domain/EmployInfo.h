@@ -4,27 +4,27 @@
 
 using namespace std;
 
+
 class EmployInfo
 {
 private:
-    string companyName; // È¸»ç ÀÌ¸§      // not null
-    string businessNum; // »ç¾÷ÀÚ¹øÈ£     // not null
-    string position;    // ¾÷¹«           // not null
-    int applicantsNum;  // Ã¤¿ë ÀÎ¿ø      // not null // <-- ¿¨ ¸Â³ª?? °°Àº ÀÇ¹Ì·Î ¾´ °Ç°¡¿ä?
-    string finishDate;  // ¸¶°¨ÀÏ         // not null
-    int currentappliedapplicantsNum;
+    string companyName; // 
+    string position; // 
+    string finishDate; // 
+    string businessNum; // 
+    int applicantsNum; 
+    int currentAppliedApplicantsNum; // 
     ApplyCollection ownedApplyInfoCollection;
 
-
 public:
-    EmployInfo() {};     // ±âº» »ý¼ºÀÚ?
-    EmployInfo(string, string, string, int, string);
-    string getCompanyName() const;
-    string getBusinessNum() const;
-    string getPosition() const;
-    int getApplicantsNum() const;
-    string getFinishDate() const;
-    void increaseCurrentappliedapplicantsNum();
+    EmployInfo(string position, int applicantsNum, string finishDate); // ìƒì„±ìž
+    string GetPosition() { return position; } // 
+    string GetFinishDate() { return finishDate; } // 
+    string GetCompanyName() { return companyName; }   // 
+    int GetApplicantsNum() { return applicantsNum; } // 
+    string GetBusinessNum() { return businessNum; }  // 
 
-    ~EmployInfo();
+    void IncreaseCurAppliedApplicantsNum(int applicantsNum);
+
+    ~EmployInfo();  
 };
