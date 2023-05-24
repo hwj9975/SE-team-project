@@ -15,7 +15,7 @@ private:
 
 public:
     EmployInfo(string position, int applicantsNum, string finishDate); // 생성자
-
+    EmployInfo();
     EmployInfo(string companyName, string businessNum, string position, int applicantsNum, string finishDate);
     string getCompanyName() const;
     string getBusinessNum() const;
