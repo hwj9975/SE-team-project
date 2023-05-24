@@ -3,34 +3,38 @@
 #include "AuthenticationControl.h"
 
 /**
- * singleton 객체인 AccountCollection, SessionCollection을 생성자를 통해 주입받는다.
-*/
+ * 함수 이름 : AuthenticationControl
+ * 기능    : singleton 객체인 AccountCollection, SessionCollection을 생성자를 통해 주입받는다.
+ * 전달 인자: AccountCollection*, SessionCollection*
+ * 반환값  : null
+ */
 AuthenticationControl::AuthenticationControl(AccountCollection* accountCollection, SessionCollection* sessionCollection) {
     this->accountCollection = accountCollection;
     this->sessionCollection = sessionCollection;
 }
 
 /**
- * id와 password를 받아 로그인.
-*/
-bool AuthenticationControl::login(std::string id, std::string password) {
-    Account* account = accountCollection->getAccount(id);
-    if (account == nullptr) { // 해당 계정이 존재하지 않는 경우.
-        return false;
-    }
-
-    if (account->getPassword() == password) { // 로그인 성공.
+ * 함수 이름 : login
+ * 기능    : id와 password를 받아 로그인.
+ * 전달 인자: string id, string password
+ * 반환값  : bool
+ */
+bool AuthenticationControl::login(string id, string password) {
+    if(accountCollection->validateAccount(id, password)) {
         sessionCollection->createSession(id);
         return true;
-    } else { // 비밀번호 틀린경우.
+    } else {
         return false;
     }
 }
 
 /**
- * 세션을 삭제함으로써 로그아웃.
-*/
-std::string AuthenticationControl::logout() {
+ * 함수 이름 : logout
+ * 기능    : 세션을 삭제함으로써 로그아웃.
+ * 전달 인자: null
+ * 반환값  : string
+ */
+string AuthenticationControl::logout() {
     Session* session = sessionCollection->getSession();
     if (session == nullptr) { // 로그인 상태가 아님.
         return "";
