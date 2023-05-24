@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include "Account.h"
+using namespace std;
 
 class AccountCollection
 {

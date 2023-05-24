@@ -1,25 +1,28 @@
 #include "SearchEmployInfoUI.h"
 
 /**
- * singleton인 EmployInfoCollection 생성자 주입.
-*/
+ * 함수 이름 : SearchEmployInfoUI
+ * 기능    : singleton인 EmployInfoCollection 주입하는 생성자.
+ * 전달 인자: EmployInfoCollection*
+ * 반환값  : null
+ */
 SearchEmployInfoUI::SearchEmployInfoUI(EmployInfoCollection* employInfoCollection) 
     : searchEmployInfoControl(employInfoCollection) {}
 
 /**
- * 회사이름을 기반으로 채용 정보 검색.
-*/
-void SearchEmployInfoUI::requestEmployInfo(std::string companyName) {
-    std::cout << "4.1. 채용 정보 검색\n";
-    std::cout << "> ";
-
-    std::vector<EmployInfo> v = searchEmployInfoControl.searchEmployInfo(companyName); //채용정보 검색
+ * 함수 이름 : requestEmployInfo
+ * 기능    : 회사이름을 기반으로 채용 정보 검색.
+ * 전달 인자: string
+ * 반환값  : string
+ */
+string SearchEmployInfoUI::requestEmployInfo(string companyName) {
+    vector<EmployInfo> v = searchEmployInfoControl.searchEmployInfo(companyName); //채용정보 검색
     if (v.size() == 0) { //채용정보가 없는 경우
-        std::cout << "등록된 채용정보가 없습니다.\n";
+        return "등록된 채용정보가 없습니다.";
     } else { //채용정보 존재
         for (EmployInfo info: v) {
-            std::cout << info.getCompanyName() << " " << info.getBusinessNum() 
-                << " " << info.getPosition() << " " << info.getApplicantsNum() << " " << info.getFinishDate() << "\n";
+            return "" + info.getCompanyName() + " " + info.getBusinessNum()
+                + " " + info.getPosition() + " " + to_string(info.getApplicantsNum()) + " " + info.getFinishDate();
         }
     }
 }

@@ -2,38 +2,41 @@
 #include <iostream>
 
 /**
- * singleton인 AccountCollection, SessionCollection를 생성자를 통해 주입.
-*/
+ * 함수 이름 : AuthenticationUI
+ * 기능    : singleton인 AccountCollection, SessionCollection를 주입하는 생성자
+ * 전달 인자: AccountCollection*, SessionCollection*
+ * 반환값  : null
+ */
 AuthenticationUI::AuthenticationUI(AccountCollection* accountCollection, SessionCollection* sessionCollection) 
     : authenticationControl(accountCollection, sessionCollection) {}
 
 /**
- * id와 password를 받아 로그인.
-*/
-bool AuthenticationUI::requestLogin(std::string id, std::string password) {
-    std::cout << "2.1. 로그인\n";
-    std::cout << "> ";
+ * 함수 이름 : requestLogin
+ * 기능    : id와 password를 받아 로그인.
+ * 전달 인자: id, password
+ * 반환값  : string
+ */
+string AuthenticationUI::requestLogin(string id, string password) {
     if (authenticationControl.login(id, password)) { // 로그인 성공.
-        std::cout << id << " " << password << "\n";
-        return true;
+        return "" + id + " " + password;
     } else { //로그인 실패.
-        std::cout << "정상적으로 로그인 하지 못했습니다.\n";
-        return false;
+        return "정상적으로 로그인 하지 못했습니다.";
     }
 }
 
 /**
  * 로그아웃.
 */
-bool AuthenticationUI::requestLogout() {
-    std::cout << "2.2. 로그아웃\n";
-    std::cout << "> ";
-
-    std::string id = authenticationControl.logout();
+/**
+ * 함수 이름 : requestLogout
+ * 기능    : 로그아웃
+ * 전달 인자: null
+ * 반환값  : string
+ */
+string AuthenticationUI::requestLogout() {
+    string id = authenticationControl.logout();
     if(id == "") {
-        std::cout << "정상적으로 로그아웃 하지 못했습니다.\n";
-        return false;
+        return "정상적으로 로그아웃 하지 못했습니다.";
     }
-    std::cout << id << "\n";
-    return true;
+    return id;
 }

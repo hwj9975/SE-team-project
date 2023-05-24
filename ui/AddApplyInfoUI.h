@@ -2,6 +2,7 @@
 #define ADDAPPLYINFOUI_H
 
 #include "AddApplyInfoControl.h"
+using namespace std;
 
 class AddApplyInfoUI
 {
@@ -9,7 +10,7 @@ private:
     AddApplyInfoControl addApplyInfoControl;
 public:
     AddApplyInfoUI(ApplyInfoCollection* applyInfoCollection);
-    void addApplyInfo(std::string businessNum);
+    string addApplyInfo(std::string businessNum);
 };
 
 #endif
