@@ -3,20 +3,23 @@
 #include "EmployInfoCollection.h"
 #include "ApplyInfo.h"
 
+
 /**
- * singleton인 ApplyInfoCollection 생성자 주입.
-*/
+ * 함수 이름 : AddApplyInfoUI
+ * 기능    : singleton인 ApplyInfoCollection 주입 생성자.
+ * 전달 인자: ApplyInfoCollection*
+ * 반환값  : string
+ */
 AddApplyInfoUI::AddApplyInfoUI(ApplyInfoCollection* applyInfoCollection) 
     : addApplyInfoControl(applyInfoCollection) {}
 
-
 /**
- * 사업자번호 기반 채용 지원.
-*/
-void AddApplyInfoUI::addApplyInfo(std::string businessNum) {
-    std::cout << "4.2. 채용 지원\n";
-    std::cout << "> ";
-
+ * 함수 이름 : addApplyInfo
+ * 기능    : 사업자번호 기반 채용 지원.
+ * 전달 인자: string
+ * 반환값  : string
+ */
+string AddApplyInfoUI::addApplyInfo(string businessNum) {
     ApplyInfo info = addApplyInfoControl.addEmployInfo(businessNum); // 채용 지원.
-    cout << info.getCompanyName() << " " << info.getBusinessNum() << " " << info.getPosition() << "\n";
+    return "" + info.getCompanyName() + " " + info.getBusinessNum() + " " + info.getPosition();
 }
