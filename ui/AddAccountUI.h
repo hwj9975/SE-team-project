@@ -3,6 +3,7 @@
 
 #include "AddAccountControl.h"
 #include <string>
+using namespace std;
 
 class AddAccountUI {
 private:
@@ -10,7 +11,7 @@ private:
 
 public:
     AddAccountUI(AccountCollection* accountCollection);
-    bool requestRegister(std::string input);
+    string requestRegister(std::string input);
 };
 
 # endif
