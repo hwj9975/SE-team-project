@@ -2,7 +2,7 @@
 #define APPLYINFOCOLLECTION_H
 
 #include <vector>
-#include <ApplyInfo.h>
+#include "ApplyInfo.h"
 
 class ApplyInfoCollection
 {
@@ -16,7 +16,7 @@ private:
 
 public:
     static ApplyInfoCollection* getInstance(); // singleton instance 반환
-    bool addApplyInfo(ApplyInfo* applyInfo); // 지원정보 저장.
+    void addApplyInfo(ApplyInfo* applyInfo); // 지원정보 저장.
 };
 
 #endif

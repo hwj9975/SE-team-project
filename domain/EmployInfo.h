@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "ApplyCollection.h"
 
 using namespace std;
@@ -7,24 +5,22 @@ using namespace std;
 class EmployInfo
 {
 private:
-    string companyName; // È¸»ç ÀÌ¸§      // not null
-    string businessNum; // »ç¾÷ÀÚ¹øÈ£     // not null
-    string position;    // ¾÷¹«           // not null
-    int applicantsNum;  // Ã¤¿ë ÀÎ¿ø      // not null // <-- ¿¨ ¸Â³ª?? °°Àº ÀÇ¹Ì·Î ¾´ °Ç°¡¿ä?
-    string finishDate;  // ¸¶°¨ÀÏ         // not null
-    int currentappliedapplicantsNum;
-    ApplyCollection ownedApplyInfoCollection;
+    string companyName; // È¸ï¿½ï¿½ ï¿½Ì¸ï¿½      // not null
+    string businessNum; // ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£     // not null
+    string position;    // ï¿½ï¿½ï¿½ï¿½           // not null
+    int applicantsNum;  // Ã¤ï¿½ï¿½ ï¿½Î¿ï¿½      // not null // <-- ï¿½ï¿½ ï¿½Â³ï¿½?? ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹Ì·ï¿½ ï¿½ï¿½ ï¿½Ç°ï¿½ï¿½ï¿½?
+    string finishDate;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½         // not null
+    int currentAppliedApplicantsNum;
 
 
 public:
-    EmployInfo() {};     // ±âº» »ý¼ºÀÚ?
-    EmployInfo(string, string, string, int, string);
+    EmployInfo(string position, int applicantsNum, string finishDate); // ìƒì„±ìž
+
+    EmployInfo(string companyName, string businessNum, string position, int applicantsNum, string finishDate);
     string getCompanyName() const;
     string getBusinessNum() const;
     string getPosition() const;
     int getApplicantsNum() const;
     string getFinishDate() const;
-    void increaseCurrentappliedapplicantsNum();
-
-    ~EmployInfo();
+    void increaseCurrentAppliedApplicantsNum();
 };

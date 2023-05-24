@@ -1,7 +1,9 @@
-#include <SessionCollection.h>
-#include <AccountCollection.h>
-#include <GeneralAccount.h>
-#include <CompanyAccount.h>
+#include "SessionCollection.h"
+#include "AccountCollection.h"
+#include "GeneralAccount.h"
+#include "CompanyAccount.h"
+
+SessionCollection* SessionCollection::instance = nullptr;
 
 SessionCollection* SessionCollection::getInstance() {
     if (instance == nullptr) {
@@ -11,7 +13,7 @@ SessionCollection* SessionCollection::getInstance() {
     return instance;
 }
 
-bool SessionCollection::createSession(std::string id) {
+void SessionCollection::createSession(std::string id) {
     AccountCollection* accountCollection = AccountCollection::getInstance();
     Account* account = accountCollection->getAccount(id);
 

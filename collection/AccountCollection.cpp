@@ -1,5 +1,6 @@
-#include <AccountCollection.h>
+#include "AccountCollection.h"
 
+AccountCollection* AccountCollection::instance = nullptr;
 /**
  * singleton instance 가져옴.
 */
@@ -38,7 +39,7 @@ bool AccountCollection::removeAccount(std::string id) {
 /**
  * 로그인 할 id와 password가 맞는지 확인.
 */
-bool AccountCollection::validaateAccount(std::string id, std::string password) {
+bool AccountCollection::validateAccount(std::string id, std::string password) {
     if (accountList.find(id) != accountList.end()) { // Account id가 존재하는 경우.
         Account* account = accountList.find(id)->second;
         if (account->getPassword() == password) { // password가 일치 하는경우.

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <map>
-#include <Account.h>
+#include "Account.h"
 
 class AccountCollection
 {
@@ -20,7 +20,7 @@ public:
     static AccountCollection* getInstance();
     bool createAccount(Account* account);
     bool removeAccount(std::string id);
-    bool validaateAccount(std::string id, std::string password);
+    bool validateAccount(std::string id, std::string password);
     Account* getAccount(std::string id);
 };
 

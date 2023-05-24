@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 
@@ -14,5 +15,5 @@ public:
     bool getApplyInfo();
     bool deleteCancelApplyInfo(string);
     bool getApplyStats();
-    bool addApplyList(ApplyInfo);   // Á¦ ÆÄÆ®°¡ ¾Æ´Ï¶ó...
+    bool addApplyList(ApplyInfo);   // ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½...
 };

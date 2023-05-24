@@ -1,7 +1,7 @@
 #ifndef SEARCHEMPLOYINFOUI_H
 #define SEARCHEMPLOYINFOUI_H
 
-#include <SearchEmployInfoControl.h>
+#include "SearchEmployInfoControl.h"
 
 class SearchEmployInfoUI
 {
