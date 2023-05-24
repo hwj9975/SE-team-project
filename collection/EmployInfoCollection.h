@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "EmployInfo.h"
+using namespace std;
 
 class EmployInfoCollection
 {
