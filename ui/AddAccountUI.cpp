@@ -1,7 +1,7 @@
-#include <AddAccountUI.h>
-#include <StringParser.h>
-#include <CompanyAccount.h>
-#include <GeneralAccount.h>
+#include "AddAccountUI.h"
+#include "StringParser.h"
+#include "CompanyAccount.h"
+#include "GeneralAccount.h"
 #include <iostream>
 
 AddAccountUI::AddAccountUI(AccountCollection* accountCollection)

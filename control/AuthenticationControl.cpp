@@ -20,7 +20,8 @@ bool AuthenticationControl::login(std::string id, std::string password) {
     }
 
     if (account->getPassword() == password) { // 로그인 성공.
-        return sessionCollection->createSession(id);
+        sessionCollection->createSession(id);
+        return true;
     } else { // 비밀번호 틀린경우.
         return false;
     }
