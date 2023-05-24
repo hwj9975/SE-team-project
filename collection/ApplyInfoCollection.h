@@ -3,11 +3,12 @@
 
 #include <vector>
 #include "ApplyInfo.h"
+using namespace std;
 
 class ApplyInfoCollection
 {
 private:
-    std::vector<std::pair<std::string, ApplyInfo*>> applyInfoList; // 지원자 이름, 지원정보
+    vector<pair<string, ApplyInfo*>> applyInfoList; // 지원자 이름, 지원정보
 
     static ApplyInfoCollection* instance; //singleton instance
 
