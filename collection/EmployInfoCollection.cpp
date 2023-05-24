@@ -1,4 +1,6 @@
-#include <EmployInfoCollection.h>
+#include "EmployInfoCollection.h"
+
+EmployInfoCollection* EmployInfoCollection::instance = nullptr;
 
 /**
  * singleton 객체 생성 및 반환.
@@ -30,18 +32,20 @@ std::vector<EmployInfo> EmployInfoCollection::getEmployInfo(std::string companyN
  * 사업자 번호를 기반으로 등록된 채용정보 검색
 */
 EmployInfo EmployInfoCollection::getEmployInfoByBusinessNum(std::string businessNum) {
+    EmployInfo info;
     for (std::pair<std::string, EmployInfo*> vals: employInfoList) { // 등록된 모둔 채용정보 순회
         if (vals.second->getBusinessNum() == businessNum) { // 사업자번호와 일치하는 채용정보
-            EmployInfo info = *vals.second;
+            info = *vals.second;
             return info;
         }
     }
+    return info;
 }
 
 /**
  * 통계 계산 위한 지원자 발생시 총 지원인원 증가.
 */
-bool EmployInfoCollection::addApplyCount(std::string companyName) {
+void EmployInfoCollection::addApplyCount(std::string companyName) {
     for (std::pair<std::string, EmployInfo*> vals: employInfoList) { // 등록된 모둔 채용정보 순회
         if (vals.second->getCompanyName() == companyName) { // 등록한 회사 이름과 일치하는 채용정보
             EmployInfo* info = vals.second;
@@ -51,5 +55,5 @@ bool EmployInfoCollection::addApplyCount(std::string companyName) {
 }
 
 bool EmployInfoCollection::getEmployStats() {
-    
+    return false;
 }

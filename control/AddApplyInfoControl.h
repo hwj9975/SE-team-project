@@ -1,7 +1,9 @@
 #ifndef ADDAPPLYINFOCONTROL_H
 #define ADDAPPLYINFOCONTROL_H
 
-#include <ApplyInfoCollection.h>
+#include "ApplyInfoCollection.h"
+#include "SessionCollection.h"
+#include "EmployInfoCollection.h"
 
 class AddApplyInfoControl
 {

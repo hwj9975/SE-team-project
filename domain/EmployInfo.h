@@ -1,30 +1,26 @@
-#include <iostream>
-
 #include "ApplyCollection.h"
 
 using namespace std;
 
-
 class EmployInfo
 {
 private:
-    string companyName; // 
-    string position; // 
-    string finishDate; // 
-    string businessNum; // 
-    int applicantsNum; 
-    int currentAppliedApplicantsNum; // 
-    ApplyCollection ownedApplyInfoCollection;
+    string companyName; // ȸ�� �̸�      // not null
+    string businessNum; // ����ڹ�ȣ     // not null
+    string position;    // ����           // not null
+    int applicantsNum;  // ä�� �ο�      // not null // <-- �� �³�?? ���� �ǹ̷� �� �ǰ���?
+    string finishDate;  // ������         // not null
+    int currentAppliedApplicantsNum;
+
 
 public:
     EmployInfo(string position, int applicantsNum, string finishDate); // 생성자
-    string GetPosition() { return position; } // 
-    string GetFinishDate() { return finishDate; } // 
-    string GetCompanyName() { return companyName; }   // 
-    int GetApplicantsNum() { return applicantsNum; } // 
-    string GetBusinessNum() { return businessNum; }  // 
 
-    void IncreaseCurAppliedApplicantsNum(int applicantsNum);
-
-    ~EmployInfo();  
+    EmployInfo(string companyName, string businessNum, string position, int applicantsNum, string finishDate);
+    string getCompanyName() const;
+    string getBusinessNum() const;
+    string getPosition() const;
+    int getApplicantsNum() const;
+    string getFinishDate() const;
+    void increaseCurrentAppliedApplicantsNum();
 };
