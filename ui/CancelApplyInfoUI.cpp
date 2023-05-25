@@ -1,22 +1,37 @@
-#include <string>
+ï»¿#include <string>
 #include "CancelApplyInfoUI.h"
-#include "CancelApplyInfo.h"
+#include "CancelApplyInfoControl.h"
+#include "ApplyInfoCollection.h"
+#include "EmployInfoCollection.h"
 
 /*
-	ÇÔ¼ö ÀÌ¸§ : CancelApplyInfoUI::cancelApplyInfoUI(string bNum)
-	±â´É	  : ÀÏ¹Ý È¸¿øÀÇ Áö¿ø Á¤º¸ »èÁ¦¸¦ À§ÇÑ UI Á¦°ø
-	Àü´Þ ÀÎÀÚ : ¾øÀ½
-	¹ÝÈ¯°ª    : Boolean
+	ï¿½Ô¼ï¿½ ï¿½Ì¸ï¿½ : CancelApplyInfoUI::cancelApplyInfoUI(string bNum)
+	ï¿½ï¿½ï¿½	  : ï¿½Ï¹ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
+	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+	ï¿½ï¿½È¯ï¿½ï¿½    : Boolean
 */
-bool CancelApplyInfoUI::cancelApplyInfoUI(string bNum)
-{
-    CancelApplyInfo cancelApplyInfo;
+//bool CancelApplyInfoUI::cancelApplyInfoUI(string bNum)
+//{
+//    CancelApplyInfoControl cancelApplyInfo;
+//
+//    cout << "[ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½]" << endl;
+//    bool result = cancelApplyInfo.cancelApplyInfo(bNum);
+//
+//    if (result) {   cout << "ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl;   }
+//    else {  cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl;    }
+//
+//    return result;
+//}
 
-    cout << "[Áö¿ø Á¤º¸ »èÁ¦]" << endl;
-    bool result = cancelApplyInfo.cancelApplyInfo(bNum);
+CancelApplyInfoUI::CancelApplyInfoUI(CancelApplyInfoControl* cancelApplyInfoControl) 
+    : cancelApplyInfoControl(cancelApplyInfoControl){}
 
-    if (result) {   cout << "ÇØ´ç Áö¿ø Á¤º¸°¡ Ãë¼ÒµÇ¾ú½À´Ï´Ù." << endl;   }
-    else {  cout << "Ãë¼ÒÇÒ Áö¿ø Á¤º¸¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù." << endl;    }
+string CancelApplyInfoUI::cancelApplyInfoUI(string companyNum) {
+    cancelApplyInfoControl->cancelApplyInfo(companyNum);
+    EmployInfoCollection *instance = EmployInfoCollection::getInstance();
+    EmployInfo info = instance->getEmployInfoByBusinessNum(companyNum);
+    
+    string ret = "" + info.getCompanyName() + " " + info.getBusinessNum() + " " + info.getPosition();
 
-    return result;
+    return ret;
 }

@@ -1,11 +1,14 @@
 #include <iostream>
+#include <vector>
+#include "ApplyInfoStatsControl.h"
 
 using namespace std;
 
 class ApplyInfoStatsUI
 {
 private:
-
+    ApplyInfoStatsControl* applyInfoStatsControl;
 public:
-    bool selectApplyInfoStats();
+    ApplyInfoStatsUI(ApplyInfoStatsControl* applyInfoStatsControl);
+    vector<string> selectApplyInfoStats();
 };

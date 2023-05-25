@@ -104,6 +104,18 @@ void EmployInfoCollection::addApplyCount(string companyName) {
     }
 }
 
-bool EmployInfoCollection::getEmployStats() {
-    return false;
+map<string, int> EmployInfoCollection::getEmployStats() {
+    map<string, int> applyStats;
+    SessionCollection* collection = SessionCollection::getInstance();
+    Session* session = collection->getSession();
+    string companyName = session->getAccount()->getName();
+
+    for (const auto& apply: employInfoList) {
+        string pos = apply.second->getPosition();
+        vector<EmployInfo> val = this->getEmployInfo(companyName);
+
+        applyStats[pos] = val.at(0).getCurrentAppliedApplicantsNum();
+    }
+
+    return applyStats;
 }
