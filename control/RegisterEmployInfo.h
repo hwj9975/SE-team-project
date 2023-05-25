@@ -6,6 +6,11 @@
 #include <string>
 
 using namespace std;
+
+/*
+Class: RegisterEmployInfo
+Description: 채용정보등록 컨트롤 클래스이다.
+*/
 class RegisterEmployInfo
 {
 public:

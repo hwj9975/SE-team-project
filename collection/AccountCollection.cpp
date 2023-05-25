@@ -16,7 +16,7 @@ AccountCollection* AccountCollection::getInstance() {
     return instance;
 }
 
-/**
+/*
  * 함수 이름 : createAccount
  * 기능    : Account의 참조를 받아 accountList에 저장.
  * 전달 인자: Account*

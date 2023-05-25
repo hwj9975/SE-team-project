@@ -6,6 +6,10 @@
 using namespace std;
 
 
+/*
+Class: RegisterEmployInfoUI
+Description: 채용정보등록 바운더리 클래스이다.
+*/
 class RegisterEmployInfoUI
 {
 public:
