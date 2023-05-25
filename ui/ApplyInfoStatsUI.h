@@ -7,8 +7,8 @@ using namespace std;
 class ApplyInfoStatsUI
 {
 private:
-    ApplyInfoStatsControl* applyInfoStatsControl;
+    ApplyInfoStatsControl applyInfoStatsControl;
 public:
-    ApplyInfoStatsUI(ApplyInfoStatsControl* applyInfoStatsControl);
+    ApplyInfoStatsUI(EmployInfoCollection* employInfoCollection, ApplyInfoCollection* applyInfoCollection);
     vector<string> selectApplyInfoStats();
 };

@@ -1,18 +1,19 @@
 #include <iostream>
 #include <fstream>
+
 #include "AccountCollection.h"
 #include "ApplyInfoCollection.h"
 #include "EmployInfoCollection.h"
 #include "SessionCollection.h"
-#include "AddAccountUI.h"
-#include "ApplyInfoCollection.h"
 
+#include "AddAccountUI.h"
 #include "RemoveAccountUI.h"
 #include "AuthenticationUI.h"
 #include "SearchEmployInfoUI.h"
 #include "AddApplyInfoUI.h"
 #include "SearchApplyInfoUI.h"
 #include "CancelApplyInfoUI.h"
+#include "ApplyInfoStatsUI.h"
 
 #define INPUT_FILE_NAME "input.txt"
 #define OUTPUT_FILE_NAME "output.txt"
@@ -41,6 +42,8 @@ void doTask() {
     SearchEmployInfoUI searchEmployInfoUi(employInfoCollection);
     AddApplyInfoUI addApplyInfoUi(applyInfoCollection);
     SearchApplyInfoUI searchApplyInfoUi(applyInfoCollection);
+    CancelApplyInfoUI cancelApplyInfoUi(applyInfoCollection);
+    ApplyInfoStatsUI applyInfoStatsUi(employInfoCollection, applyInfoCollection);
 
     if (inputFile.is_open()) {
         while (!inputFile.eof()) {
@@ -89,11 +92,14 @@ void doTask() {
                 } else if (menu1 == 4 && menu2 == 4){
                     getline(inputFile, input);
                     outputFile << "4.4. 지원 취소\n";
-                    outputFile << "> ";
-
+                    outputFile << "> " << cancelApplyInfoUi.cancelApplyInfoUI(input);
                 } else if (menu1 == 5 && menu2 == 1){
                     outputFile << "5.1. 지원 정보 통계\n";
                     outputFile << "> ";
+                    vector<string> v = applyInfoStatsUi.selectApplyInfoStats();
+                    for (string s: v) {
+                        outputFile << s << "\n";
+                    }
                 } else if (menu1 == 6 && menu2 == 1){
                     outputFile << "6.1. 종료\n";
                     outputFile << "> ";
