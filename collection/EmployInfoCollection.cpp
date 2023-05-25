@@ -13,12 +13,15 @@ using namespace std;
  * 전달 인자: null
  * 반환값  : 없음
  */
-void EmployInfoCollection::AddEmployInfo(string position, int applicantsNum, string finishDate)
+void EmployInfoCollection::addEmployInfo(string position, int applicantsNum, string finishDate)
 {
 
     SessionCollection* collection = SessionCollection::getInstance();
-    string name = collection->getSession()->getAccount()->getName();
-    string bussinessNum = collection->getSession()->getAccount()->getBusinessNumber();
+    CompanyAccount *account = static_cast<CompanyAccount *> (collection->getSession()->getAccount());
+
+    string name = account->getName();
+    string bussinessNum = account->getBusinessNumber();
+    
     EmployInfo* newEmployInfo = new EmployInfo(name, bussinessNum, position, applicantsNum, finishDate);
     ownedEmployList.push_back(newEmployInfo); // 리스트에 추가
 }
@@ -29,7 +32,7 @@ void EmployInfoCollection::AddEmployInfo(string position, int applicantsNum, str
  * 전달 인자: null
  * 반환값  : vector <EmployInfo*> ownedEmployList반환
  */
-vector <EmployInfo*> EmployInfoCollection::GetListEmployInfo()
+vector <EmployInfo*> EmployInfoCollection::getListEmployInfo()
 {
     return this->ownedEmployList; // 리턴 타입은 vector <EmployInfo*> 타입이다
 }
