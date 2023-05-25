@@ -3,6 +3,8 @@
 
 #include <string>
 
+using namespace std;
+
 class Account {
 private:
     std::string id;

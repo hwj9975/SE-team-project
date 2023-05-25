@@ -1,8 +1,21 @@
 #include "GeneralAccount.h"
 
-GeneralAccount::GeneralAccount(std::string id, const std::string& password, const std::string& name, const std::string& residentId)
+/**
+ * 함수 이름 : GeneralAccount
+ * 기능    : 생성자
+ * 전달 인자: string id, const string& password, const string& name, const string& residentId
+ * 반환값  : null
+ */
+GeneralAccount::GeneralAccount(string id, const string& password, const string& name, const string& residentId)
     : Account(id, password, name), residentId(residentId) {}
 
-std::string GeneralAccount::getResidentId() const {
+
+/**
+* 함수 이름 : getResidentId
+* 기능    : 주민번호 반환
+* 전달 인자: null
+* 반환값  : string
+*/
+string GeneralAccount::getResidentId() const {
     return residentId;
 }

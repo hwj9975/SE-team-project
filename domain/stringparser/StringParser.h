@@ -3,15 +3,16 @@
 
 #include <string>
 #include <vector>
+using namespace std;
 
 class StringParser
 {
 private:
-    std::vector<std::string> tokens;
+    vector<string> tokens;
 
 public:
-    StringParser(const std::string& input);
-    std::vector<std::string> getTokens() const;
+    StringParser(const string& input);
+    vector<string> getTokens() const;
 };
 
 #endif
