@@ -15,7 +15,7 @@ using namespace std;
  * 전달 인자: string input, RegisterEmployInfo* registerEmployInfo
  * 반환값  : void
  */
-void RegisterEmployInfoUI::createNewEmployInfo(string input, RegisterEmployInfo* registerEmployInfo)
+string RegisterEmployInfoUI::createNewEmployInfo(string input, RegisterEmployInfo* registerEmployInfo)
 {
 // input을 ' ' 기준으로 파싱.
     StringParser parser(input);
@@ -25,7 +25,7 @@ void RegisterEmployInfoUI::createNewEmployInfo(string input, RegisterEmployInfo*
     int applicantsNum = stoi(tokens.at(1));
     string finishDate= tokens.at(2);
 
-    registerEmployInfo->sendEmployInfoData(position, applicantsNum, finishDate);
+    return registerEmployInfo->sendEmployInfoData(position, applicantsNum, finishDate);
 }
 
 /*
