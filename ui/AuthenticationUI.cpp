@@ -1,5 +1,6 @@
 #include "AuthenticationUI.h"
 #include <iostream>
+#include "StringParser.h"
 
 /**
  * 함수 이름 : AuthenticationUI
@@ -16,7 +17,11 @@ AuthenticationUI::AuthenticationUI(AccountCollection* accountCollection, Session
  * 전달 인자: id, password
  * 반환값  : string
  */
-string AuthenticationUI::requestLogin(string id, string password) {
+string AuthenticationUI::requestLogin(string input) {
+    StringParser stringParser(input);
+    vector<string> v = stringParser.getTokens();
+    string id = v.at(0);
+    string password = v.at(1);
     if (authenticationControl.login(id, password)) { // 로그인 성공.
         return "" + id + " " + password;
     } else { //로그인 실패.

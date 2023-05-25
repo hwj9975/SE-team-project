@@ -26,3 +26,11 @@ void EmployInfo::increaseCurrentAppliedApplicantsNum() {
 int EmployInfo::getCurrentAppliedApplicantsNum() {
     return this->currentAppliedApplicantsNum;
 }
+
+EmployInfo::EmployInfo() {}
+
+EmployInfo::EmployInfo(string position, int applicantsNum, string finishDate) {
+    this->position = position;
+    this->applicantsNum = applicantsNum;
+    this->finishDate = finishDate;
+}
