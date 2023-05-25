@@ -23,11 +23,11 @@
 //    return result;
 //}
 
-CancelApplyInfoUI::CancelApplyInfoUI(CancelApplyInfoControl* cancelApplyInfoControl) 
-    : cancelApplyInfoControl(cancelApplyInfoControl){}
+CancelApplyInfoUI::CancelApplyInfoUI(ApplyInfoCollection* applyInfoCollection)
+    : cancelApplyInfoControl(applyInfoCollection){}
 
 string CancelApplyInfoUI::cancelApplyInfoUI(string companyNum) {
-    cancelApplyInfoControl->cancelApplyInfo(companyNum);
+    cancelApplyInfoControl.cancelApplyInfo(companyNum);
     EmployInfoCollection *instance = EmployInfoCollection::getInstance();
     EmployInfo info = instance->getEmployInfoByBusinessNum(companyNum);
     

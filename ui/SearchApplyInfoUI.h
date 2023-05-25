@@ -9,9 +9,9 @@ using namespace std;
 class SearchApplyInfoUI
 {
 private:
-    SearchApplyInfoControl* searchApplyInfoControl;
+    SearchApplyInfoControl searchApplyInfoControl;
 
 public:
-    SearchApplyInfoUI(SearchApplyInfoControl* searchApplyInfoControl);
+    SearchApplyInfoUI(ApplyInfoCollection* applyInfoCollection);
     vector<string> searchApplyInfo();
 };
