@@ -7,7 +7,12 @@
 
 using namespace std;
 
-
+/**
+ * 함수 이름 : RegisterEmployInfo
+ * 기능    : RegisterEmployInfo생성자
+ * 전달 인자: string input
+ * 반환값  : 없음
+ */
 RegisterEmployInfo::RegisterEmployInfo(string input)
 {
     RegisterEmployInfoUI* registerEmployInfoUI = new RegisterEmployInfoUI;

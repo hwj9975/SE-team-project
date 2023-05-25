@@ -17,10 +17,11 @@ void EmployInfoCollection::AddEmployInfo(string position, int applicantsNum, str
 {
 
     SessionCollection* collection = SessionCollection::getInstance();
-    string name = collection->getSession()->getAccount()->getName();
-    string bussinessNum = collection->getSession()->getAccount()->getBusinessNumber();
+    CompanyAccount *account = static_cast<CompanyAccount *> (collection->getSession()->getAccount());
 
-
+    string name = account->getName();
+    string bussinessNum = account->getBusinessNumber();
+    
     EmployInfo* newEmployInfo = new EmployInfo(name, bussinessNum, position, applicantsNum, finishDate);
     ownedEmployList.push_back(newEmployInfo); // 리스트에 추가
 }
