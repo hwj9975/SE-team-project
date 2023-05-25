@@ -2,18 +2,21 @@
 #include <iostream>
 
 /**
- * singleton인 accountCollection을 주입받는 생성자.
-*/
+ * 함수 이름 : RemoveAccountUI
+ * 기능    : singleton인 accountCollection을 주입받는 생성자.
+ * 전달 인자: AccountCollection*
+ * 반환값  : null
+ */
 RemoveAccountUI::RemoveAccountUI(AccountCollection* accountCollection) 
     : removeAccountControl(accountCollection) {}
 
 /**
- * 계정을 삭제
-*/
-bool RemoveAccountUI::requestRemove() {
-    std::cout << "1.2. 회원탈퇴\n";
-    
-    std::string id = removeAccountControl.removeAccount();
-
-    std::cout << "> " << id;
+ * 함수 이름 : requestRemove
+ * 기능    : 계정을 삭제
+ * 전달 인자: null
+ * 반환값  : id
+ */
+string RemoveAccountUI::requestRemove() {
+    string id = removeAccountControl.removeAccount();
+    return id;
 }

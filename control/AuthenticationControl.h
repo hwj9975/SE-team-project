@@ -4,6 +4,7 @@
 #include <string>
 #include "SessionCollection.h"
 #include "AccountCollection.h"
+using namespace std;
 
 class AuthenticationControl {
 private:
@@ -12,8 +13,8 @@ private:
 
 public:
     AuthenticationControl(AccountCollection* accountCollection, SessionCollection* sessionCollection); //생성자 주입
-    bool login(std::string id, std::string password);
-    std::string logout();
+    bool login(string id, string password);
+    string logout();
 };
 
 
