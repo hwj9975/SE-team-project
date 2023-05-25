@@ -1,23 +1,36 @@
 #include <string>
 
 #include "ApplyInfoStatsUI.h"
-#include "ApplyInfoStats.h"
+#include "ApplyInfoStatsControl.h"
 
 /*
-	ÇÔ¼ö ÀÌ¸§ : ApplyInfoStatsUI::selectEmployInfoStats()
-	±â´É	  : ÀÏ¹Ý È¸¿øÀÇ Áö¿ø Á¤º¸ Åë°è Ãâ·ÂÀ» À§ÇÑ UI Á¦°ø
-	Àü´Þ ÀÎÀÚ : ¾øÀ½
-	¹ÝÈ¯°ª    : Boolean
+	ï¿½Ô¼ï¿½ ï¿½Ì¸ï¿½ : ApplyInfoStatsUI::selectEmployInfoStats()
+	ï¿½ï¿½ï¿½	  : ï¿½Ï¹ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
+	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+	ï¿½ï¿½È¯ï¿½ï¿½    : Boolean
 */
-bool ApplyInfoStatsUI::selectApplyInfoStats()
-{
-	ApplyInfoStats applyInfoStats;
+//bool ApplyInfoStatsUI::selectApplyInfoStats()
+//{
+//	ApplyInfoStatsControl applyInfoStats;
+//
+//	cout << "[ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½]" << endl;
+//    bool result = applyInfoStats.showApplyInfoStats();
+//
+//    if (result) {   cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½è¸¦ ï¿½ï¿½È¸ï¿½Õ´Ï´ï¿½." << endl; }
+//	else { cout << "ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl; }
+//
+//    return result;
+//}
 
-	cout << "[Áö¿ø Á¤º¸ Åë°è]" << endl;
-    bool result = applyInfoStats.showApplyInfoStats();
+ApplyInfoStatsUI::ApplyInfoStatsUI(ApplyInfoStatsControl *applyInfoStatsControl)
+    : applyInfoStatsControl(applyInfoStatsControl) {}
 
-    if (result) {   cout << "Áö¿ø Á¤º¸ Åë°è¸¦ Á¶È¸ÇÕ´Ï´Ù." << endl; }
-	else { cout << "Á¶È¸ÇÒ Áö¿ø Á¤º¸°¡ ¾ø½À´Ï´Ù." << endl; }
-
-    return result;
+vector<string> ApplyInfoStatsUI::selectApplyInfoStats() {
+    map<string, int> map = applyInfoStatsControl->showApplyInfoStats();
+    vector<string> ret;
+    for (auto iter : map) {
+        string tmp = iter.first + " " + to_string(iter.second);
+        ret.push_back(tmp);
+    }
+    return ret;
 }

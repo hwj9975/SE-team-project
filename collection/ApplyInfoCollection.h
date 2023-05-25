@@ -1,7 +1,9 @@
+#pragma once
 #ifndef APPLYINFOCOLLECTION_H
 #define APPLYINFOCOLLECTION_H
 
 #include <vector>
+#include <map>
 #include "ApplyInfo.h"
 using namespace std;
 
@@ -18,6 +20,9 @@ private:
 public:
     static ApplyInfoCollection* getInstance(); // singleton instance 반환
     void addApplyInfo(ApplyInfo* applyInfo); // 지원정보 저장.
+    vector<ApplyInfo> getApplyInfo();
+    void deleteCancelApplyInfo(string businessNumber);
+    map<string, int> getApplyStats();
 };
 
 #endif

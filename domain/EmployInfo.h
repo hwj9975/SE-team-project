@@ -1,5 +1,6 @@
-#include "ApplyCollection.h"
-
+#pragma once
+#include "ApplyInfoCollection.h"
+#include <string>
 using namespace std;
 
 class EmployInfo
@@ -23,4 +24,5 @@ public:
     int getApplicantsNum() const;
     string getFinishDate() const;
     void increaseCurrentAppliedApplicantsNum();
+    int getCurrentAppliedApplicantsNum();
 };

@@ -5,11 +5,14 @@
 #include "EmployInfoCollection.h"
 #include "SessionCollection.h"
 #include "AddAccountUI.h"
+#include "ApplyInfoCollection.h"
 
 #include "RemoveAccountUI.h"
 #include "AuthenticationUI.h"
 #include "SearchEmployInfoUI.h"
 #include "AddApplyInfoUI.h"
+#include "SearchApplyInfoUI.h"
+#include "CancelApplyInfoUI.h"
 
 #define INPUT_FILE_NAME "input.txt"
 #define OUTPUT_FILE_NAME "output.txt"
@@ -30,12 +33,14 @@ void doTask() {
     ApplyInfoCollection* applyInfoCollection = ApplyInfoCollection::getInstance();
     EmployInfoCollection* employInfoCollection = EmployInfoCollection::getInstance();
     SessionCollection* sessionCollection = SessionCollection::getInstance();
+    ApplyInfoCollection* applyInfoCollection1 = ApplyInfoCollection::getInstance();
 
     AddAccountUI addAccountUi(accountCollection);
     RemoveAccountUI removeAccountUi(accountCollection);
     AuthenticationUI authenticationUi(accountCollection, sessionCollection);
     SearchEmployInfoUI searchEmployInfoUi(employInfoCollection);
     AddApplyInfoUI addApplyInfoUi(applyInfoCollection);
+    SearchApplyInfoUI searchApplyInfoUi(applyInfoCollection);
 
     if (inputFile.is_open()) {
         while (!inputFile.eof()) {
@@ -74,12 +79,18 @@ void doTask() {
                     outputFile << "4.2. 채용 지원\n";
                     outputFile << "> " << addApplyInfoUi.addApplyInfo(input);
                 } else if (menu1 == 4 && menu2 == 3){
-                    outputFile << "4.2. 지원 정보 조회\n";
+                    outputFile << "4.3. 지원 정보 조회\n";
                     outputFile << "> ";
+                    vector<string> v = searchApplyInfoUi.searchApplyInfo();
+                    for (string s: v) {
+                        outputFile << s << "\n";
+                    }
+                    outputFile << "\n";
                 } else if (menu1 == 4 && menu2 == 4){
                     getline(inputFile, input);
                     outputFile << "4.4. 지원 취소\n";
                     outputFile << "> ";
+
                 } else if (menu1 == 5 && menu2 == 1){
                     outputFile << "5.1. 지원 정보 통계\n";
                     outputFile << "> ";
