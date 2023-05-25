@@ -10,7 +10,7 @@ class ViewEmployInfoUI
 {
 public:
     void RequestEmployInfo(ViewEmployInfo* viewEmployInfo);
-    void ShowEmployInfo(string position, int applicantsNum, string finishDate);
+    string ShowEmployInfo(string position, int applicantsNum, string finishDate);
 };
 
 #endif

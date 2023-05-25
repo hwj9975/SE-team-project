@@ -2,14 +2,21 @@
 #include "RegisterEmployInfoUI.h"
 #include <string>
 #include "EmployCollection2.h"
+#include "EmployInfoCollection.h"
 
-RegisterEmployInfo::RegisterEmployInfo()
+
+using namespace std;
+
+
+RegisterEmployInfo::RegisterEmployInfo(string input)
 {
     RegisterEmployInfoUI* registerEmployInfoUI = new RegisterEmployInfoUI;
-    registerEmployInfoUI->CreateNewEmployInfo(this);
+    registerEmployInfoUI->CreateNewEmployInfo(input,this);
 }
 
 void RegisterEmployInfo::SendEmployInfoData(string position, int applicantsNum, string finishDate)
 {
-    employInfoCollection->AddEmployInfo(position, applicantsNum, finishDate);
+    AccountCollection* instance = AccountCollection::getInstance();
+
+    instance->AddEmployInfo(position, applicantsNum, finishDate);
 }
