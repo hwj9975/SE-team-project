@@ -10,7 +10,7 @@ class RegisterEmployInfo
 {
 public:
     RegisterEmployInfo(string input);
-    void SendEmployInfoData(string position, int applicantsNum, string finishDate);
+    void sendEmployInfoData(string position, int applicantsNum, string finishDate);
 };
 
 #endif

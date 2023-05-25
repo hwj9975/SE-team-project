@@ -9,7 +9,7 @@ using namespace std;
 class RegisterEmployInfoUI
 {
 public:
-    void CreateNewEmployInfo(string input, RegisterEmployInfo* RegisterEmployInfo);
+    void createNewEmployInfo(string input, RegisterEmployInfo* RegisterEmployInfo);
 };
 
 #endif

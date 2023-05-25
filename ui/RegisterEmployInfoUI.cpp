@@ -25,7 +25,7 @@ ofstream outputFile(OUTPUT_FILE_NAME); // output.txt 를 쓰기모드로 열음
  * 전달 인자: string input, RegisterEmployInfo* registerEmployInfo
  * 반환값  : void
  */
-void RegisterEmployInfoUI::CreateNewEmployInfo(string input, RegisterEmployInfo* registerEmployInfo)
+void RegisterEmployInfoUI::createNewEmployInfo(string input, RegisterEmployInfo* registerEmployInfo)
 {
 // input을 ' ' 기준으로 파싱.
     StringParser parser(input);
@@ -36,5 +36,5 @@ void RegisterEmployInfoUI::CreateNewEmployInfo(string input, RegisterEmployInfo*
     string finishDate= tokens.at(2);
 
     // inputFile >> position >> applicantsNum >> finishDate;
-    registerEmployInfo->SendEmployInfoData(position, applicantsNum, finishDate);
+    registerEmployInfo->sendEmployInfoData(position, applicantsNum, finishDate);
 }

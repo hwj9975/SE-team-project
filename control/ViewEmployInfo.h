@@ -5,7 +5,7 @@ class ViewEmployInfo
 {
 public:
     ViewEmployInfo();
-    void ShowEmployInfo();
+    void showEmployInfo();
 };
 
 #endif

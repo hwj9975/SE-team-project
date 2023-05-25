@@ -9,12 +9,12 @@
 ifstream inputFile(INPUT_FILE_NAME);   // input.txt 를 읽기모드로 열음
 ofstream outputFile(OUTPUT_FILE_NAME); // output.txt 를 쓰기모드로 열음
 
-void ViewEmployInfoUI::RequestEmployInfo(ViewEmployInfo* viewEmployInfo)
+void ViewEmployInfoUI::requestEmployInfo(ViewEmployInfo* viewEmployInfo)
 {
-    viewEmployInfo->ShowEmployInfo();
+    viewEmployInfo->showEmployInfo();
 }
 
-string ViewEmployInfoUI::ShowEmployInfo(string position, int applicantsNum, string finishDate)
+string ViewEmployInfoUI::showEmployInfo(string position, int applicantsNum, string finishDate)
 {
     string output = "> ";
     output += position + " " + to_string(applicantsNum) + " " + finishDate + "\n";

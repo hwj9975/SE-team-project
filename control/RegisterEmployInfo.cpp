@@ -16,12 +16,12 @@ using namespace std;
 RegisterEmployInfo::RegisterEmployInfo(string input)
 {
     RegisterEmployInfoUI* registerEmployInfoUI = new RegisterEmployInfoUI;
-    registerEmployInfoUI->CreateNewEmployInfo(input,this);
+    registerEmployInfoUI->createNewEmployInfo(input,this);
 }
 
-void RegisterEmployInfo::SendEmployInfoData(string position, int applicantsNum, string finishDate)
+void RegisterEmployInfo::sendEmployInfoData(string position, int applicantsNum, string finishDate)
 {
     EmployInfoCollection* instance = EmployInfoCollection::getInstance();
 
-    instance->AddEmployInfo(position, applicantsNum, finishDate);
+    instance->addEmployInfo(position, applicantsNum, finishDate);
 }
