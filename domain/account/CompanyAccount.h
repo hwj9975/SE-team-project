@@ -2,13 +2,14 @@
 #define COMPANYACCOUNT_H
 
 #include "Account.h"
+using namespace std;
 
 class CompanyAccount : public Account {
 private:
-    std::string businessNumber;
+    string businessNumber;
 public:
-    CompanyAccount(std::string id, const std::string& password, const std::string& name, const std::string& businessNumber);
-    std::string getBusinessNumber() const;
+    CompanyAccount(string id, const string& password, const string& name, const string& businessNumber);
+    string getBusinessNumber() const;
 };
 
 #endif // COMPANYACCOUNT_H

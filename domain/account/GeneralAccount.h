@@ -2,13 +2,14 @@
 #define GENERALACCOUNT_H
 
 #include "Account.h"
+using namespace std;
 
 class GeneralAccount : public Account {
 private:
-    std::string residentId;
+    string residentId;
 public:
-    GeneralAccount(std::string id, const std::string& password, const std::string& name, const std::string& residentId);
-    std::string getResidentId() const;
+    GeneralAccount(string id, const string& password, const string& name, const string& residentId);
+    string getResidentId() const;
 };
 
 #endif // GENERALACCOUNT_H

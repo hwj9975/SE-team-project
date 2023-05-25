@@ -1,17 +1,41 @@
 #include "Account.h"
 
-Account::Account(std::string id, const std::string& password, const std::string& name)
+/**
+ * 함수 이름 : Account
+ * 기능    : 생성자
+ * 전달 인자: string id, const string& password, const string& name
+ * 반환값  : bool
+ */
+Account::Account(string id, const string& password, const string& name)
     : id(id), password(password), name(name) {
 }
 
-std::string Account::getId() const {
+/**
+ * 함수 이름 : getId
+ * 기능    : id 반환
+ * 전달 인자: null
+ * 반환값  : string
+ */
+string Account::getId() const {
     return id;
 }
 
-std::string Account::getPassword() const {
+/**
+ * 함수 이름 : Account
+ * 기능    : 생성자
+ * 전달 인자: string id, const string& password, const string& name
+ * 반환값  : bool
+ */
+string Account::getPassword() const {
     return password;
 }
 
-std::string Account::getName() const {
+/**
+ * 함수 이름 : getName
+ * 기능    : 이름 반환
+ * 전달 인자: null
+ * 반환값  : string
+ */
+string Account::getName() const {
     return name;
 }
