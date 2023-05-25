@@ -22,11 +22,11 @@
 //    return result;
 //}
 
-ApplyInfoStatsUI::ApplyInfoStatsUI(ApplyInfoStatsControl *applyInfoStatsControl)
-    : applyInfoStatsControl(applyInfoStatsControl) {}
+ApplyInfoStatsUI::ApplyInfoStatsUI(EmployInfoCollection* employInfoCollection, ApplyInfoCollection* applyInfoCollection)
+    : applyInfoStatsControl(employInfoCollection, applyInfoCollection) {}
 
 vector<string> ApplyInfoStatsUI::selectApplyInfoStats() {
-    map<string, int> map = applyInfoStatsControl->showApplyInfoStats();
+    map<string, int> map = applyInfoStatsControl.showApplyInfoStats();
     vector<string> ret;
     for (auto iter : map) {
         string tmp = iter.first + " " + to_string(iter.second);

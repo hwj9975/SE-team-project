@@ -6,8 +6,8 @@ using namespace std;
 class CancelApplyInfoUI
 {
 private:
-    CancelApplyInfoControl* cancelApplyInfoControl;
+    CancelApplyInfoControl cancelApplyInfoControl;
 public:
-    CancelApplyInfoUI(CancelApplyInfoControl* cancelApplyInfoControl);
+    CancelApplyInfoUI(ApplyInfoCollection* applyInfoCollection);
     string cancelApplyInfoUI(string companyName);
 };
