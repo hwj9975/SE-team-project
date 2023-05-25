@@ -34,6 +34,7 @@ void ViewEmployInfo::showEmployInfo()
     for (int i = 0; i < listEmployInfo.size(); i++) 
     {
         ViewEmployInfoUI* viewEmployInfoUI = new ViewEmployInfoUI;
-        viewEmployInfoUI->showEmployInfo(listEmployInfo[i]->getPosition(), listEmployInfo[i]->getApplicantsNum(), listEmployInfo[i]->getFinishDate());
+        string employInfo = viewEmployInfoUI->showEmployInfo(listEmployInfo[i]->getPosition(), listEmployInfo[i]->getApplicantsNum(), listEmployInfo[i]->getFinishDate());
+        employInfoList += employInfo;
     }
 }
