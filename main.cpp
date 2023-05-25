@@ -15,6 +15,11 @@
 #include "CancelApplyInfoUI.h"
 #include "ApplyInfoStatsUI.h"
 
+#include "RegisterEmployInfo.h"
+#include "RegisterEmployInfoUI.h"
+#include "ViewEmployInfo.h"
+#include "ViewEmployInfoUI.h"
+
 #define INPUT_FILE_NAME "input.txt"
 #define OUTPUT_FILE_NAME "output.txt"
 
@@ -69,10 +74,12 @@ void doTask() {
                 } else if (menu1 == 3 && menu2 == 1){
                     getline(inputFile, input);
                     outputFile << "3.1. 채용 정보 등록\n";
-                    outputFile << "> ";
+                    RegisterEmployInfo* registerEmployInfo = new RegisterEmployInfo(input);
+                    outputFile << registerEmployInfo->getEmployInfo();
                 } else if (menu1 == 3 && menu2 == 2){
                     outputFile << "3.2. 등록된 채용 정보 조회\n";
-                    outputFile << "> ";
+                    ViewEmployInfo* viewEmployInfo = new ViewEmployInfo;
+                    outputFile << viewEmployInfo->getEmployInfoList();
                 } else if (menu1 == 4 && menu2 == 1){
                     getline(inputFile, input);
                     outputFile << "4.1. 채용 정보 검색\n";

@@ -16,7 +16,7 @@ using namespace std;
 RegisterEmployInfo::RegisterEmployInfo(string input)
 {
     RegisterEmployInfoUI* registerEmployInfoUI = new RegisterEmployInfoUI;
-    registerEmployInfoUI->createNewEmployInfo(input,this);
+    employInfo = registerEmployInfoUI->createNewEmployInfo(input,this);
 }
 
 /**
@@ -25,12 +25,16 @@ RegisterEmployInfo::RegisterEmployInfo(string input)
  * 전달 인자: string position, int applicantsNum, string finishDate
  * 반환값  : void
  */
-void RegisterEmployInfo::sendEmployInfoData(string position, int applicantsNum, string finishDate)
+string RegisterEmployInfo::sendEmployInfoData(string position, int applicantsNum, string finishDate)
 {
     EmployInfoCollection* instance = EmployInfoCollection::getInstance();
 
     instance->addEmployInfo(position, applicantsNum, finishDate);
 
     RegisterEmployInfoUI* registerEmployInfo = new RegisterEmployInfo;
-    registerEmployInfo->ShowRegistrationCompleteMessage(position, applicantsNum, finishDate); // 등록완료하였다고 메세지를 보낸다.
+    return registerEmployInfo->ShowRegistrationCompleteMessage(position, applicantsNum, finishDate); // 등록완료하였다고 메세지를 보낸다.
+}
+
+string RegisterEmployInfo::getEmployInfo(){
+    return employInfo;
 }
