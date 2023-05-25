@@ -27,3 +27,16 @@ void RegisterEmployInfoUI::createNewEmployInfo(string input, RegisterEmployInfo*
 
     registerEmployInfo->sendEmployInfoData(position, applicantsNum, finishDate);
 }
+
+/*
+ * 함수 이름 : ShowRegistrationCompleteMessage
+ * 기능    : 채용정보를 잘 등록했다는 메시지 출력함수
+ * 전달 인자: string position, int applicantsNum, string finishDate
+ * 반환값  : string
+ */
+string RegisterEmployInfoUI::ShowRegistrationCompleteMessage(string position, int applicantsNum, string finishDate)
+{
+    string output = "> ";
+    output += position + " " + to_string(applicantsNum) + " " + finishDate + "\n";
+    return output;
+}

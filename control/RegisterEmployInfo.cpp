@@ -1,7 +1,7 @@
 #include "RegisterEmployInfo.h"
 #include "RegisterEmployInfoUI.h"
 #include <string>
-#include "EmployCollection2.h"
+
 #include "EmployInfoCollection.h"
 
 
@@ -30,4 +30,7 @@ void RegisterEmployInfo::sendEmployInfoData(string position, int applicantsNum, 
     EmployInfoCollection* instance = EmployInfoCollection::getInstance();
 
     instance->addEmployInfo(position, applicantsNum, finishDate);
+
+    RegisterEmployInfoUI* registerEmployInfo = new RegisterEmployInfo;
+    registerEmployInfo->ShowRegistrationCompleteMessage(position, applicantsNum, finishDate); // 등록완료하였다고 메세지를 보낸다.
 }

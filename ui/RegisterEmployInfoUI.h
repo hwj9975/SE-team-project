@@ -14,6 +14,8 @@ class RegisterEmployInfoUI
 {
 public:
     void createNewEmployInfo(string input, RegisterEmployInfo* RegisterEmployInfo);
+
+    string ShowRegistrationCompleteMessage(string position, int applicantsNum, string finishDate);
 };
 
 #endif
