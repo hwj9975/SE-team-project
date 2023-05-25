@@ -9,7 +9,7 @@ using namespace std;
 class RegisterEmployInfo
 {
 public:
-    RegisterEmployInfo();
+    RegisterEmployInfo(string input);
     void SendEmployInfoData(string position, int applicantsNum, string finishDate);
 };
 

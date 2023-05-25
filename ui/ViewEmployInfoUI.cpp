@@ -14,8 +14,9 @@ void ViewEmployInfoUI::RequestEmployInfo(ViewEmployInfo* viewEmployInfo)
     viewEmployInfo->ShowEmployInfo();
 }
 
-void ViewEmployInfoUI::ShowEmployInfo(string position, int applicantsNum, string finishDate)
+string ViewEmployInfoUI::ShowEmployInfo(string position, int applicantsNum, string finishDate)
 {
-    outputFile << "> ";
-    outputFile << position << " " << applicantsNum << " " << finishDate << endl;
+    string output = "> ";
+    output += position + " " + to_string(applicantsNum) + " " + finishDate + "\n";
+    return output;
 }

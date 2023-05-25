@@ -13,7 +13,6 @@ private:
     
 public:
     void AddEmployInfo(string position, int applicantsNum, string finishDate);
-
     vector <EmployInfo*> GetListEmployInfo();
 };
 
