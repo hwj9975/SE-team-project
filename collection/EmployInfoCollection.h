@@ -27,8 +27,8 @@ public:
     void addApplyCount(std::string companyName); // 지원자수 추가.
     map<string, int> getEmployStats();
 
-    void AddEmployInfo(string position, int applicantsNum, string finishDate);
-    vector <EmployInfo*> GetListEmployInfo();
+    void addEmployInfo(string position, int applicantsNum, string finishDate);
+    vector <EmployInfo*> getListEmployInfo();
 };
 
 #endif
