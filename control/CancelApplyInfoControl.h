@@ -12,7 +12,7 @@ public:
     CancelApplyInfoControl(ApplyInfoCollection* applyInfoCollection) {
         this->applyInfoCollection;
     }
-    bool cancelApplyInfo(string businessNum) {
+    void cancelApplyInfo(string businessNum) {
         applyInfoCollection->deleteCancelApplyInfo(businessNum);
     }
 };

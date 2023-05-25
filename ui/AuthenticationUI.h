@@ -9,7 +9,7 @@ private:
     AuthenticationControl authenticationControl;
 public:
     AuthenticationUI(AccountCollection* accountCollection, SessionCollection* sessionCollection);
-    string requestLogin(std::string id, std::string password);
+    string requestLogin(string input);
     string requestLogout();
 };
 
