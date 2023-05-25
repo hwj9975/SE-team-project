@@ -1,4 +1,41 @@
 #include "EmployInfoCollection.h"
+#include "EmployInfo.h"
+#include "CompanyAccount.h"
+#include "SessionCollection.h"
+#include "string"
+
+using namespace std;
+
+
+/**
+ * 함수 이름 : AddEmployInfo
+ * 기능    : ownedEmployList에 새로운 채용정보 추가
+ * 전달 인자: null
+ * 반환값  : 없음
+ */
+void EmployInfoCollection::AddEmployInfo(string position, int applicantsNum, string finishDate)
+{
+
+    SessionCollection* collection = SessionCollection::getInstance();
+    string name = collection->getSession()->getAccount()->getName();
+    string bussinessNum = collection->getSession()->getAccount()->getBusinessNumber();
+
+
+    EmployInfo* newEmployInfo = new EmployInfo(name, bussinessNum, position, applicantsNum, finishDate);
+    ownedEmployList.push_back(newEmployInfo); // 리스트에 추가
+}
+
+/**
+ * 함수 이름 : GetListEmployInfo
+ * 기능    : 채용정보리스트 반환
+ * 전달 인자: null
+ * 반환값  : vector <EmployInfo*> ownedEmployList반환
+ */
+vector <EmployInfo*> EmployInfoCollection::GetListEmployInfo()
+{
+    return this->ownedEmployList; // 리턴 타입은 vector <EmployInfo*> 타입이다
+}
+
 
 EmployInfoCollection* EmployInfoCollection::instance = nullptr;
 
