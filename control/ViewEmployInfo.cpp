@@ -3,6 +3,13 @@
 #include "EmployInfo.h"
 #include "EmployCollection2.h"
 
+
+/**
+ * 함수 이름 : ViewEmployInfo
+ * 기능    : ViewEmployInfo생성자
+ * 전달 인자: null
+ * 반환값  : 없음
+ */
 ViewEmployInfo::ViewEmployInfo()
 {
     // 생성자 구현
