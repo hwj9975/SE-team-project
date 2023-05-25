@@ -16,7 +16,7 @@ RegisterEmployInfo::RegisterEmployInfo(string input)
 
 void RegisterEmployInfo::SendEmployInfoData(string position, int applicantsNum, string finishDate)
 {
-    AccountCollection* instance = AccountCollection::getInstance();
+    EmployInfoCollection* instance = EmployInfoCollection::getInstance();
 
     instance->AddEmployInfo(position, applicantsNum, finishDate);
 }
