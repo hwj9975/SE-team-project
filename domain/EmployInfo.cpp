@@ -22,3 +22,7 @@ string EmployInfo::getFinishDate() const {
 void EmployInfo::increaseCurrentAppliedApplicantsNum() {
     this->currentAppliedApplicantsNum++;
 }
+
+int EmployInfo::getCurrentAppliedApplicantsNum() {
+    return this->currentAppliedApplicantsNum;
+}

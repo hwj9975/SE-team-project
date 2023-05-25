@@ -19,8 +19,6 @@ void EmployInfoCollection::AddEmployInfo(string position, int applicantsNum, str
     SessionCollection* collection = SessionCollection::getInstance();
     string name = collection->getSession()->getAccount()->getName();
     string bussinessNum = collection->getSession()->getAccount()->getBusinessNumber();
-
-
     EmployInfo* newEmployInfo = new EmployInfo(name, bussinessNum, position, applicantsNum, finishDate);
     ownedEmployList.push_back(newEmployInfo); // 리스트에 추가
 }
@@ -103,6 +101,18 @@ void EmployInfoCollection::addApplyCount(string companyName) {
     }
 }
 
-bool EmployInfoCollection::getEmployStats() {
-    return false;
+map<string, int> EmployInfoCollection::getEmployStats() {
+    map<string, int> applyStats;
+    SessionCollection* collection = SessionCollection::getInstance();
+    Session* session = collection->getSession();
+    string companyName = session->getAccount()->getName();
+
+    for (const auto& apply: employInfoList) {
+        string pos = apply.second->getPosition();
+        vector<EmployInfo> val = this->getEmployInfo(companyName);
+
+        applyStats[pos] = val.at(0).getCurrentAppliedApplicantsNum();
+    }
+
+    return applyStats;
 }

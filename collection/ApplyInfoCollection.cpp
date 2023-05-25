@@ -1,4 +1,6 @@
 #include "ApplyInfoCollection.h"
+#include "SessionCollection.h"
+#include "GeneralAccount.h"
 
 ApplyInfoCollection* ApplyInfoCollection::instance = nullptr;
 
@@ -24,4 +26,43 @@ ApplyInfoCollection* ApplyInfoCollection::getInstance() {
  */
 void ApplyInfoCollection::addApplyInfo(ApplyInfo* applyInfo) {
     applyInfoList.push_back(pair<string, ApplyInfo*>(applyInfo->getApplicantName(), applyInfo)); // 지원자 이름, 지원정보 저장.
+}
+
+vector<ApplyInfo> ApplyInfoCollection::getApplyInfo() {
+    SessionCollection *instance = SessionCollection::getInstance();
+    GeneralAccount *account = static_cast<GeneralAccount *> (instance->getSession()->getAccount());
+    string accountName = account->getName();
+
+    vector<ApplyInfo> ret;
+    for (pair<string, ApplyInfo*> v:applyInfoList ) {
+        if (v.first == accountName) {
+            ret.push_back(*v.second);
+        }
+    }
+
+    return ret;
+}
+
+void ApplyInfoCollection::deleteCancelApplyInfo(string businessNumber) {
+    SessionCollection *instance = SessionCollection::getInstance();
+    GeneralAccount *account = static_cast<GeneralAccount *> (instance->getSession()->getAccount());
+    string accountName = account->getName();
+
+    for (auto x = applyInfoList.begin(); x != applyInfoList.end(); ++x) {
+        if (x->second->getBusinessNum() == businessNumber) {
+            applyInfoList.erase(x);
+        }
+    }
+
+}
+
+map<string, int> ApplyInfoCollection::getApplyStats() {
+    map<string, int> applyStats;
+
+    for (const auto& apply: applyInfoList) {
+        string pos = apply.second->getPosition();
+        applyStats[pos]++;
+    }
+
+    return applyStats;
 }
